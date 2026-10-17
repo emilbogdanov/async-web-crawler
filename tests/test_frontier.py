@@ -128,3 +128,18 @@ async def test_tasks_added_during_processing_are_awaited() -> None:
         await asyncio.wait_for(frontier.join(), timeout=0.05)
     await drain(frontier, 1)
     await asyncio.wait_for(frontier.join(), timeout=0.05)
+
+
+def test_allow_host_extends_allow_list() -> None:
+    frontier = make_frontier(allowed_hosts=frozenset({"a.com"}))
+    assert frontier.add("https://www.a.com/", 1) is False
+
+    frontier.allow_host("www.a.com")
+
+    assert frontier.add("https://www.a.com/", 1) is True
+
+
+def test_allow_host_is_noop_without_restriction() -> None:
+    frontier = make_frontier()
+    frontier.allow_host("a.com")
+    assert frontier.add("https://other.com/", 0) is True

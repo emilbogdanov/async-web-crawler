@@ -28,7 +28,7 @@ class Frontier:
     ) -> None:
         self._max_depth = max_depth
         self._max_pages = max_pages
-        self._allowed_hosts = allowed_hosts
+        self._allowed_hosts = set(allowed_hosts) if allowed_hosts is not None else None
         self._seen: set[str] = set()
         self._scheduled = 0
         self._queue: asyncio.Queue[CrawlTask] = asyncio.Queue()
@@ -50,6 +50,11 @@ class Frontier:
         self._scheduled += 1
         self._queue.put_nowait(CrawlTask(url, depth))
         return True
+
+    def allow_host(self, host: str) -> None:
+        """Extend the host allow-list, e.g. when a seed redirects to ``www.``."""
+        if self._allowed_hosts is not None:
+            self._allowed_hosts.add(host)
 
     def mark_seen(self, url: str) -> None:
         """Record an alias (e.g. a redirect target) so it is never scheduled separately."""
