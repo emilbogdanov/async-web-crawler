@@ -14,6 +14,9 @@ dependencies = [
     "selectolax>=1.0.1",
 ]
 
+[project.scripts]
+crawler = "crawler.cli:main"
+
 [dependency-groups]
 dev = [
     "mypy>=1.11",
