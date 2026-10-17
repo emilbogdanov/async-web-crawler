@@ -1,0 +1,65 @@
+[project]
+name = "async-web-crawler"
+version = "0.1.0"
+description = "Polite async web crawler with robots.txt support, per-domain rate limiting and JSON/SQLite export."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.12"
+authors = [{ name = "Emil Bogdanov" }]
+dependencies = [
+    "pydantic-settings>=2.4",
+]
+
+[dependency-groups]
+dev = [
+    "mypy>=1.11",
+    "pre-commit>=3.8",
+    "pytest>=8.3",
+    "ruff>=0.6",
+]
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/crawler"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "E", "W",   # pycodestyle
+    "F",        # pyflakes
+    "I",        # isort
+    "N",        # pep8-naming
+    "UP",       # pyupgrade
+    "B",        # bugbear
+    "S",        # bandit
+    "C4",       # comprehensions
+    "SIM",      # simplify
+    "RET",      # return
+    "PTH",      # use pathlib
+    "PT",       # pytest style
+    "ASYNC",    # async pitfalls
+    "LOG", "G", # logging
+    "T20",      # no print
+    "RUF",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src", "tests"]
+plugins = ["pydantic.mypy"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers --strict-config"

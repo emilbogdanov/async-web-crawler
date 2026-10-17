@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Environments
+.venv/
+.env
+
+# Tooling caches
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Crawl output
+output/
+*.db
+*.sqlite
+*.jsonl
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
