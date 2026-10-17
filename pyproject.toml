@@ -8,6 +8,7 @@ license-files = ["LICENSE"]
 requires-python = ">=3.12"
 authors = [{ name = "Emil Bogdanov" }]
 dependencies = [
+    "httpx>=0.28.1",
     "pydantic-settings>=2.4",
 ]
 
@@ -16,6 +17,8 @@ dev = [
     "mypy>=1.11",
     "pre-commit>=3.8",
     "pytest>=8.3",
+    "pytest-asyncio>=1.4.0",
+    "respx>=0.23.1",
     "ruff>=0.6",
 ]
 
@@ -63,3 +66,5 @@ plugins = ["pydantic.mypy"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-ra --strict-markers --strict-config"
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
