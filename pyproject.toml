@@ -10,6 +10,7 @@ authors = [{ name = "Emil Bogdanov" }]
 dependencies = [
     "httpx>=0.28.1",
     "pydantic-settings>=2.4",
+    "selectolax>=1.0.1",
 ]
 
 [dependency-groups]
