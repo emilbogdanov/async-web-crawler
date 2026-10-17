@@ -7,7 +7,7 @@ import respx
 
 from crawler.robots import ROBOTS_MAX_BYTES, RobotsCache
 
-UA = "AsyncWebCrawler/0.1 (+https://github.com/ESBogdanov25/async-web-crawler)"
+UA = "AsyncWebCrawler/0.1 (+https://github.com/emilbogdanov/async-web-crawler)"
 ROBOTS_URL = "https://example.com/robots.txt"
 
 RULES = """

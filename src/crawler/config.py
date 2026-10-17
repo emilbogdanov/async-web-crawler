@@ -13,7 +13,7 @@ class Settings(BaseSettings):
     )
 
     user_agent: str = Field(
-        default="AsyncWebCrawler/0.1 (+https://github.com/ESBogdanov25/async-web-crawler)",
+        default="AsyncWebCrawler/0.1 (+https://github.com/emilbogdanov/async-web-crawler)",
         min_length=1,
     )
     max_depth: int = Field(default=2, ge=0)

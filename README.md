@@ -2,7 +2,7 @@
 
 Polite, concurrent web crawler built on asyncio. It respects robots.txt, rate-limits per host, and streams results to JSON Lines or SQLite.
 
-[![CI](https://github.com/ESBogdanov25/async-web-crawler/actions/workflows/ci.yml/badge.svg)](https://github.com/ESBogdanov25/async-web-crawler/actions/workflows/ci.yml)
+[![CI](https://github.com/emilbogdanov/async-web-crawler/actions/workflows/ci.yml/badge.svg)](https://github.com/emilbogdanov/async-web-crawler/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/python-3.12%20%7C%203.13-blue)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
@@ -39,7 +39,7 @@ Polite, concurrent web crawler built on asyncio. It respects robots.txt, rate-li
 ## Quickstart
 
 ```bash
-git clone https://github.com/ESBogdanov25/async-web-crawler.git && cd async-web-crawler
+git clone https://github.com/emilbogdanov/async-web-crawler.git && cd async-web-crawler
 uv sync
 uv run crawler https://pypi.org/project/httpx/ -d 1 -n 10
 ```
