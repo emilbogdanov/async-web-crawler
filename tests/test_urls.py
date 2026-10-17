@@ -1,6 +1,6 @@
 import pytest
 
-from crawler.urls import host_of, normalize_url
+from crawler.urls import host_of, normalize_url, origin_of
 
 
 @pytest.mark.parametrize(
@@ -77,3 +77,15 @@ def test_normalize_is_idempotent() -> None:
 )
 def test_host_of(url: str, expected: str) -> None:
     assert host_of(url) == expected
+
+
+@pytest.mark.parametrize(
+    ("url", "expected"),
+    [
+        ("https://example.com/a/b?q=1", "https://example.com"),
+        ("http://example.com:8080/", "http://example.com:8080"),
+        ("http://[::1]:8080/x", "http://[::1]:8080"),
+    ],
+)
+def test_origin_of(url: str, expected: str) -> None:
+    assert origin_of(url) == expected

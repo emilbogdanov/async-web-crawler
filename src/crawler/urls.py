@@ -34,6 +34,12 @@ def host_of(url: str) -> str:
     return urlsplit(url).netloc
 
 
+def origin_of(url: str) -> str:
+    """Return ``scheme://host[:port]`` of a normalized URL (the robots.txt scope)."""
+    parts = urlsplit(url)
+    return f"{parts.scheme}://{parts.netloc}"
+
+
 def _remove_dot_segments(path: str) -> str:
     """Resolve ``.`` and ``..`` segments (RFC 3986 §5.2.4); empty path becomes ``/``."""
     segments = path.split("/")
