@@ -9,6 +9,7 @@ requires-python = ">=3.12"
 authors = [{ name = "Emil Bogdanov" }]
 dependencies = [
     "httpx>=0.28.1",
+    "protego>=0.7.0",
     "pydantic-settings>=2.4",
     "selectolax>=1.0.1",
 ]
